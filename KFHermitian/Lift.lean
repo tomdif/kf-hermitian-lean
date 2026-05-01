@@ -35,7 +35,7 @@ theorem isHermitian_complexLift {n : Type*} {A : Matrix n n ℚ}
     (h : A.IsSymm) : (A.map (fun q : ℚ => (q : ℂ))).IsHermitian := by
   unfold Matrix.IsHermitian
   ext i j
-  simp only [Matrix.conjTranspose_apply, Matrix.map_apply, Matrix.transpose_apply,
+  simp only [Matrix.conjTranspose_apply, Matrix.map_apply,
              KFHermitian.star_ratCast_complex]
   have hsymm : A j i = A i j := by
     have := congr_fun (congr_fun h i) j

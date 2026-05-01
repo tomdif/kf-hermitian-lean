@@ -13,7 +13,7 @@
   Zero sorry. Zero custom axioms. Mathlib-native (no QuantumInfo dependency).
 -/
 
-import Mathlib.Data.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.Matrix.Symmetric
 
 namespace KFHermitian.CubeCase
