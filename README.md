@@ -25,14 +25,16 @@ This is the **constructor** that takes order-theoretic data and produces a Hermi
 
 ## Plan
 
-| Phase | Wks | Setting | Deliverable |
+| Phase | Status | Setting | Deliverable |
 |---|---|---|---|
-| 0 | done | n/a | Pencil-exploration note: [`KFHermitian/Pencil.md`](KFHermitian/Pencil.md). Confirms the symmetry argument is structure-free; relocates the 3a/3b split from Phase 3 (Hermitian-ness) to Phase 4 (physical properties). |
-| 1 | 1–2 | `[m]^d` concrete | `KF_d2_m3.IsSymm` and analogues for `d = 3, 4`. Mathlib-native; no QuantumInfo dep. |
-| 2 | 1–2 | `[m]^d` concrete | Lift to ℂ. `IsHermitian`. Wrap as `HermitianMat`. Re-derive γ₄ = ln(5/3) through `HermitianMat.eigenvalues` rather than ad-hoc char-poly. |
-| 3 | 1–2 | fully general locally finite poset | `(KF P).IsHermitian` for `P : Type` with `[Preorder P]` and finite chain indexing. The "free" generalization. |
-| 4a | 2–3 | graded locally finite poset (committed) | Spectral gap > 0; functoriality under rank-preserving embeddings; positivity criterion. **The novel-mathematical-content phase.** |
-| 4b | 1–2 | fully general LFP (stretch) | Push 4a to non-graded posets. Stop here if it tar-pits — 4a is a strong result on its own. |
+| 0 | ✅ committed | n/a | Pencil-exploration note: [`KFHermitian/Pencil.md`](KFHermitian/Pencil.md). |
+| 1 | ✅ committed (unverified build) | `[m]^d` concrete | `KF_d2_m3.IsSymm`, `KF_d2_m4.IsSymm`, `KF_odd_block_d2_m4.IsSymm`. See [`KFHermitian/CubeCase.lean`](KFHermitian/CubeCase.lean). |
+| 2 | ✅ committed (unverified build) | `[m]^d` concrete | Lift to ℂ; `IsHermitian` for the three cube matrices. See [`KFHermitian/HermitianCase.lean`](KFHermitian/HermitianCase.lean) + lift lemma in [`KFHermitian/Lift.lean`](KFHermitian/Lift.lean). |
+| 3 | ✅ committed (unverified build) | any finite preorder | `K_F_matrix_C_isHermitian`: K_F on `(Fin d → α) × (Fin d → α)` is Hermitian over ℂ. See [`KFHermitian/General.lean`](KFHermitian/General.lean). **The headline structural result.** |
+| 4a | 📋 planned | graded locally finite poset | Spectral gap > 0; functoriality under rank-preserving embeddings; positivity criterion. See [`KFHermitian/Phase4.md`](KFHermitian/Phase4.md). **The novel-mathematical-content phase.** |
+| 4b | 📋 stretch | fully general LFP | Push 4a to non-graded posets. Stop here if it tar-pits. |
+
+> **Verification status:** Phases 1–3 are written but not yet verified by `lake build`. The proofs are short and follow standard Mathlib idioms (`ext + fin_cases + rfl` for finite-matrix symmetry, `simp + rw + ring` for the general K_F symmetry), but tactic syntax can drift between Mathlib versions. First action on a fresh checkout is `lake update && lake build`. Any tactic adjustments will be one-line fixes.
 
 Total target: 6–10 weeks.
 

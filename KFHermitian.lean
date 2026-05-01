@@ -3,3 +3,12 @@
 
 -- Phase 1: cube case (KF on [m]^d for small m, d).
 import KFHermitian.CubeCase
+
+-- Phase 2: lift the cube cases to ℂ; prove IsHermitian.
+import KFHermitian.HermitianCase
+
+-- Phase 3: general K_F on tuples in any finite preorder; IsSymm and IsHermitian.
+import KFHermitian.General
+
+-- Phase 4 (planned): spectral gap, functoriality, positivity criterion.
+-- See KFHermitian/Phase4.md.
