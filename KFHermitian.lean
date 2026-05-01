@@ -10,5 +10,8 @@ import KFHermitian.HermitianCase
 -- Phase 3: general K_F on tuples in any finite preorder; IsSymm and IsHermitian.
 import KFHermitian.General
 
--- Phase 4 (planned): spectral gap, functoriality, positivity criterion.
--- See KFHermitian/Phase4.md.
+-- Phase 4 prelude: order-embedding functoriality and the eigenvalue API.
+-- The full Phase 4a deliverables (spectral gap > 0, positivity criterion)
+-- are described in KFHermitian/Phase4.md.
+import KFHermitian.Functoriality
+import KFHermitian.Eigenvalues
